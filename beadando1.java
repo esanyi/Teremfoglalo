@@ -4,6 +4,8 @@
  */
 package beadando1;
 
+import org.omg.PortableInterceptor.AdapterManagerIdHelper;
+
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -24,6 +26,47 @@ public class Beadando1 {
         Pattern pattern = Pattern.compile("\\s+");
         Matcher matcher = pattern.matcher(inputStr);
         return matcher.replaceAll(replaceStr);
+    }
+
+    protected static Integer readInt(String question) {
+        Boolean finished = false;
+        Integer result = 0;
+        Scanner myScanner = new Scanner(System.in);
+        while (!finished) {
+            System.out.println(question);
+            String line = myScanner.nextLine();
+            try {
+                result = Integer.parseInt(line);
+                finished = true;
+            } catch (NumberFormatException e) {
+                finished = false;
+            }
+        }
+        return result;
+    }
+
+    protected static Boolean readBool(String question) {
+        Boolean finished = false;
+        Integer result = 0;
+        Scanner myScanner = new Scanner(System.in);
+        while (!finished) {
+            System.out.println(question);
+            System.out.println(new String("1. Igen"));
+            System.out.println(new String("2. Nem"));
+            String line = myScanner.nextLine();
+            try {
+                result = Integer.parseInt(line);
+                if (result == 1) {
+                    return true;
+                } else if (result == 2) {
+                    return false;
+                }
+            } catch (NumberFormatException e) {
+                finished = false;
+            }
+        }
+        // We won't actually run into this line
+        return false;
     }
 
     public static void main(String[] args) {
@@ -98,10 +141,7 @@ public class Beadando1 {
                     Termek.AllTeremInfo();
 
                     System.out.println("\n\n\n");
-                    System.out.println("Mekkora kapacítású termet szeretne? :");
-                    Scanner milyenkapacit = new Scanner(System.in);
-                    String i_szam = milyenkapacit.nextLine();
-                    int kapacit = Integer.parseInt(i_szam);
+                    int kapacit = readInt("Mekkora kapacítású termet szeretne?");
 
                     System.out.println("\nMilyen termet szeretne?");
                     System.out.println("1. Előadó");
