@@ -8,7 +8,7 @@ public class TermekClass {
     public static final int MaxTermek = 100;
 
     public TermekClass() {
-        Termek = new ArrayList<>();
+        Termek = new ArrayList();
     }
 
 
