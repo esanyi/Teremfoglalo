@@ -5,7 +5,8 @@
 package beadando1;
 
 /**
- *
  * @author egyed.sandor_1
  */
-public enum TeremType {eloado, szeminarium, gepterem};
+public enum TeremType {
+    eloado, szeminarium, gepterem
+};
