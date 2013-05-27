@@ -69,6 +69,35 @@ public class Beadando1 {
         return false;
     }
 
+    protected static Integer readThreeChoice(String question, String choice1, String choice2, String choice3) {
+        Boolean finished = false;
+        Integer result = 0;
+        Scanner myScanner = new Scanner(System.in);
+        while (!finished) {
+            System.out.println(question);
+            System.out.println("1. " + choice1);
+            System.out.println("2. " + choice2);
+            System.out.println("3. " + choice3);
+            String line = myScanner.nextLine();
+            try {
+                result = Integer.parseInt(line);
+                if (result == 1) {
+                    return result;
+                }
+                if (result == 2) {
+                    return result;
+                }
+                if (result == 3) {
+                    return result;
+                }
+            } catch (NumberFormatException e) {
+                finished = false;
+            }
+        }
+        // We won't actually run into this line
+        return 0;
+    }
+
     public static void main(String[] args) {
         System.out.print("Teremfoglalás kezelő\n");
         System.out.print("--------------------\n\n");
@@ -143,14 +172,11 @@ public class Beadando1 {
                     System.out.println("\n\n\n");
                     int kapacit = readInt("Mekkora kapacítású termet szeretne?");
 
-                    System.out.println("\nMilyen termet szeretne?");
-                    System.out.println("1. Előadó");
-                    System.out.println("2. Szeminárium");
-                    System.out.println("3. Gépterem");
+                    int teremTip = readThreeChoice("Milyen termet szeretne?", "Előadó", "Szeminárium", "Gépterem");
 
-                    Scanner milyenterem = new Scanner(System.in);
+                    /*Scanner milyenterem = new Scanner(System.in);
                     String t_szam = milyenkapacit.nextLine();
-                    int teremtip = Integer.parseInt(t_szam);
+                    int teremtip = Integer.parseInt(t_szam);*/
 
                     System.out.println("\nSzeretne projektort a terembe?");
                     System.out.println("1. Igen");
